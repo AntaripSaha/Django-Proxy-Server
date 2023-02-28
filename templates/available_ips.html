@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Available IPs</title>
+</head>
+<body>
+	{% if ips %}
+		<h1>Available IPs:</h1>
+		<ul>
+			{% for ip_port in ips %}
+				<li>
+					{{ ip_port }}
+					(<a href="{% url 'select_ip' ip_port %}">Set as Proxy</a>)
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No available IPs found.</p>
+	{% endif %}
+</body>
+</html>
